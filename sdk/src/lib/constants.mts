@@ -11,7 +11,10 @@ export const DIST_DIR = resolve(ROOT_DIR, "dist");
 export const VITE_DIR = resolve(ROOT_DIR, "src", "vite");
 
 export const INTERMEDIATES_OUTPUT_DIR = resolve(
-  DIST_DIR,
+  process.cwd(),
+  "node_modules",
+  ".cache",
+  "rwsdk",
   "__intermediate_builds",
 );
 
@@ -22,11 +25,13 @@ export const INTERMEDIATES_OUTPUT_DIR = resolve(
 // fallback marker/placeholder for cases where the dev plugin has not set temp
 // barrel paths.
 export const VENDOR_CLIENT_BARREL_PATH = resolve(
-  INTERMEDIATES_OUTPUT_DIR,
+  DIST_DIR,
+  "__intermediate_builds",
   "__vendor_client_barrel.dev-virtual.js",
 );
 export const VENDOR_SERVER_BARREL_PATH = resolve(
-  INTERMEDIATES_OUTPUT_DIR,
+  DIST_DIR,
+  "__intermediate_builds",
   "__vendor_server_barrel.dev-virtual.js",
 );
 
